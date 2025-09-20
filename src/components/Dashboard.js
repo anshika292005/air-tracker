@@ -3,6 +3,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { 
   User, 
+  Plane,
   Calendar, 
   MapPin, 
   Clock, 

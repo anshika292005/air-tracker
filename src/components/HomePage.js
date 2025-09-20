@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { Search, Plane, Calendar, Users, MapPin, Clock, DollarSign, Star, User, LogOut } from 'lucide-react';
-import { useAuth } from '../contexts/AuthContext';
+import { Search, Calendar, Users, MapPin, Clock, DollarSign, Star } from 'lucide-react';
 import Header from './Header';
 
 function HomePage() {
   const navigate = useNavigate();
-  const { user, logout } = useAuth();
   const [searchForm, setSearchForm] = useState({
     from: '',
     to: '',
@@ -102,16 +100,50 @@ function HomePage() {
       {/* Header */}
       <Header />
 
-      {/* Hero Section */}
-      <section className="hero">
-        <div className="hero-content">
-          <h2>Find the Best Flight Deals</h2>
-          <p>Compare prices from multiple airlines and book your perfect journey</p>
+      {/* Video Hero Section (same theme as dashboard) */}
+      <section className="dashboard-hero">
+        <div className="video-wrap" aria-hidden="true">
+          <video className="bg-video" autoPlay muted loop playsInline>
+            <source src="https://videos.pexels.com/video-files/854257/854257-uhd_2560_1440_25fps.mp4" type="video/mp4" />
+          </video>
+          <div className="video-overlay"></div>
+        </div>
+
+        <div className="hero-content container">
+          <div className="hero-text">
+            <h2>Find the Best Flight Deals</h2>
+            <p>Compare prices from multiple airlines and book your perfect journey</p>
+            <div className="hero-actions">
+              <button type="button" className="action-btn primary" onClick={() => document.getElementById('home-search')?.scrollIntoView({ behavior: 'smooth' })}>
+                <Search className="btn-icon" />
+                Search Flights
+              </button>
+              <button type="button" className="action-btn secondary" onClick={() => navigate('/deals')}>
+                <Star className="btn-icon" />
+                View Deals
+              </button>
+            </div>
+          </div>
+
+          <div className="route-visual">
+            <div className="city start">
+              <span className="code">BLR</span>
+              <span className="name">Bangalore</span>
+            </div>
+            <div className="route-line">
+              <div className="progress"></div>
+              <div className="plane">✈️</div>
+            </div>
+            <div className="city end">
+              <span className="code">DEL</span>
+              <span className="name">New Delhi</span>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Search Form */}
-      <section className="search-section">
+      <section id="home-search" className="search-section">
         <div className="container">
           <div className="search-card">
             <form onSubmit={handleSearch} className="search-form">
