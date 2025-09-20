@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Search, Plane, Calendar, Users, MapPin, Clock, DollarSign, Star, User, LogOut } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
+import Header from './Header';
 
 function HomePage() {
   const navigate = useNavigate();
@@ -99,33 +100,7 @@ function HomePage() {
   return (
     <div className="App">
       {/* Header */}
-      <header className="header">
-        <div className="container">
-          <div className="logo">
-            <Plane className="logo-icon" />
-            <h1>FlightTracker</h1>
-          </div>
-          <nav>
-            <Link to="/">Home</Link>
-            <Link to="/deals">Deals</Link>
-            <Link to="/contact">Contact</Link>
-            {user ? (
-              <div className="user-menu">
-                <Link to="/dashboard" className="user-link">
-                  <User className="user-icon" />
-                  {user.firstName}
-                </Link>
-                <button onClick={logout} className="logout-btn">
-                  <LogOut className="logout-icon" />
-                  Logout
-                </button>
-              </div>
-            ) : (
-              <Link to="/signin">Sign In</Link>
-            )}
-          </nav>
-        </div>
-      </header>
+      <Header />
 
       {/* Hero Section */}
       <section className="hero">

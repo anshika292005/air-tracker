@@ -18,6 +18,7 @@ import {
   Search,
   Filter
 } from 'lucide-react';
+import Header from './Header';
 
 function Dashboard() {
   const { user, logout } = useAuth();
@@ -86,29 +87,7 @@ function Dashboard() {
   return (
     <div className="dashboard-page">
       {/* Header */}
-      <header className="header">
-        <div className="container">
-          <div className="logo">
-            <Plane className="logo-icon" />
-            <h1>FlightTracker</h1>
-          </div>
-          <nav>
-            <Link to="/">Home</Link>
-            <Link to="/deals">Deals</Link>
-            <Link to="/contact">Contact</Link>
-            <div className="user-menu">
-              <div className="user-info">
-                <User className="user-icon" />
-                <span>Welcome, {user?.firstName}</span>
-              </div>
-              <button onClick={handleLogout} className="logout-btn">
-                <LogOut className="logout-icon" />
-                Logout
-              </button>
-            </div>
-          </nav>
-        </div>
-      </header>
+      <Header />
 
       <div className="container">
         {/* Dashboard Header */}

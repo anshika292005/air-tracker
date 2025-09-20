@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { ArrowLeft, Plane, Mail, Phone, MapPin, Clock, Send, MessageCircle, HelpCircle, Star } from 'lucide-react';
+import Header from './Header';
 
 function ContactPage() {
   const navigate = useNavigate();
@@ -95,20 +96,7 @@ function ContactPage() {
   return (
     <div className="contact-page">
       {/* Header */}
-      <header className="header">
-        <div className="container">
-          <div className="logo">
-            <Plane className="logo-icon" />
-            <h1>FlightTracker</h1>
-          </div>
-          <nav>
-            <Link to="/">Home</Link>
-            <Link to="/deals">Deals</Link>
-            <Link to="/contact" className="active">Contact</Link>
-            <Link to="/signin">Sign In</Link>
-          </nav>
-        </div>
-      </header>
+      <Header />
 
       <div className="container">
         {/* Back Button */}

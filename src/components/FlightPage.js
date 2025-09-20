@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { ArrowLeft, Plane, MapPin, Star, Wifi, Utensils, Briefcase, Heart } from 'lucide-react';
+import Header from './Header';
 
 function FlightPage() {
   const { id } = useParams();
@@ -147,20 +148,7 @@ function FlightPage() {
   return (
     <div className="flight-page">
       {/* Header */}
-      <header className="header">
-        <div className="container">
-          <div className="logo">
-            <Plane className="logo-icon" />
-            <h1>FlightTracker</h1>
-          </div>
-          <nav>
-            <Link to="/">Home</Link>
-            <Link to="/deals">Deals</Link>
-            <Link to="/contact">Contact</Link>
-            <Link to="/signin">Sign In</Link>
-          </nav>
-        </div>
-      </header>
+      <Header />
 
       <div className="container">
         {/* Back Button */}

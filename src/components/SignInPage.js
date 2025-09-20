@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { ArrowLeft, Plane, Mail, Lock, Eye, EyeOff, User, LogIn, Facebook, Twitter, Github } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
+import Header from './Header';
 
 function SignInPage() {
   const navigate = useNavigate();
@@ -111,20 +112,7 @@ function SignInPage() {
   return (
     <div className="signin-page">
       {/* Header */}
-      <header className="header">
-        <div className="container">
-          <div className="logo">
-            <Plane className="logo-icon" />
-            <h1>FlightTracker</h1>
-          </div>
-          <nav>
-            <Link to="/">Home</Link>
-            <Link to="/deals">Deals</Link>
-            <Link to="/contact">Contact</Link>
-            <Link to="/signin" className="active">Sign In</Link>
-          </nav>
-        </div>
-      </header>
+      <Header />
 
       <div className="container">
         {/* Back Button */}

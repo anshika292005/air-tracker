@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { ArrowLeft, Plane, Clock, MapPin, Star, Percent, Calendar, Users, Heart, Zap } from 'lucide-react';
+import Header from './Header';
 
 function DealsPage() {
   const navigate = useNavigate();
@@ -120,20 +121,7 @@ function DealsPage() {
   return (
     <div className="deals-page">
       {/* Header */}
-      <header className="header">
-        <div className="container">
-          <div className="logo">
-            <Plane className="logo-icon" />
-            <h1>FlightTracker</h1>
-          </div>
-          <nav>
-            <Link to="/">Home</Link>
-            <Link to="/deals" className="active">Deals</Link>
-            <Link to="/contact">Contact</Link>
-            <Link to="/signin">Sign In</Link>
-          </nav>
-        </div>
-      </header>
+      <Header />
 
       <div className="container">
         {/* Back Button */}
