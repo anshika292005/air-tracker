@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { 
   User, 
-  Plane, 
   Calendar, 
   MapPin, 
   Clock, 
   Star, 
   Settings, 
-  LogOut, 
   Bell, 
   Mail, 
   Phone,
@@ -21,7 +19,7 @@ import {
 import Header from './Header';
 
 function Dashboard() {
-  const { user, logout } = useAuth();
+  const { user } = useAuth();
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('overview');
 
@@ -62,10 +60,7 @@ function Dashboard() {
     }
   ];
 
-  const handleLogout = () => {
-    logout();
-    navigate('/');
-  };
+  // no-op
 
   const formatDate = (dateString) => {
     return new Date(dateString).toLocaleDateString('en-US', {
@@ -88,6 +83,54 @@ function Dashboard() {
     <div className="dashboard-page">
       {/* Header */}
       <Header />
+
+      {/* Deals Hero with route animation and video background */}
+      <section className="dashboard-hero">
+        <div className="video-wrap" aria-hidden="true">
+          <video className="bg-video" autoPlay muted loop playsInline>
+            <source src="https://videos.pexels.com/video-files/854257/854257-uhd_2560_1440_25fps.mp4" type="video/mp4" />
+          </video>
+          <div className="video-overlay"></div>
+        </div>
+
+        <div className="hero-content container">
+          <div className="hero-text">
+            <h2>Find the Best Flight Deals</h2>
+            <p>Track prices, explore destinations, and book smarter—fast.</p>
+            <div className="hero-actions">
+              <button 
+                className="action-btn primary"
+                onClick={() => navigate('/')}
+              >
+                <Search className="btn-icon" />
+                Start Searching
+              </button>
+              <button 
+                className="action-btn secondary"
+                onClick={() => navigate('/deals')}
+              >
+                <Star className="btn-icon" />
+                View Top Deals
+              </button>
+            </div>
+          </div>
+
+          <div className="route-visual">
+            <div className="city start">
+              <span className="code">DEL</span>
+              <span className="name">New Delhi</span>
+            </div>
+            <div className="route-line">
+              <div className="progress"></div>
+              <div className="plane">✈️</div>
+            </div>
+            <div className="city end">
+              <span className="code">BOM</span>
+              <span className="name">Mumbai</span>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <div className="container">
         {/* Dashboard Header */}
