@@ -88,8 +88,15 @@ function Dashboard() {
       {/* Deals Hero with route animation and video background */}
       <section className="dashboard-hero">
         <div className="video-wrap" aria-hidden="true">
-          <video className="bg-video" autoPlay muted loop playsInline>
-            <source src="https://videos.pexels.com/video-files/854257/854257-uhd_2560_1440_25fps.mp4" type="video/mp4" />
+          <video
+            className="bg-video"
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster="https://images.pexels.com/photos/46148/aircraft-jet-landing-cloud-46148.jpeg?auto=compress&cs=tinysrgb&w=1600"
+          >
+            <source src="https://videos.pexels.com/video-files/1093653/1093653-uhd_2560_1440_25fps.mp4" type="video/mp4" />
           </video>
           <div className="video-overlay"></div>
         </div>
